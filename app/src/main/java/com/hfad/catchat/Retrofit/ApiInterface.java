@@ -34,4 +34,16 @@ public interface ApiInterface {
     Call<UserExtra> getContactById(
             @Field("id") String id);
 
+    @FormUrlEncoded
+    @POST("editcontact.php")
+    Call<User> editContact(
+            @Field("id") String id,
+            @Field("name") String name,
+            @Field("place") String place,
+            @Field("phone") String phone,
+            @Field("disease") String disease,
+            @Field("age") int age,
+            @Field("day") String day,
+            @Field("dr") String dr);;
+
 }

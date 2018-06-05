@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">DrBuddy</string>
-    <string name="user_name">spot@catchat.com</string>
-    <string name="nav_inbox">Inbox</string>
+    <string name="user_name">chari@drchat.com</string>
+    <string name="nav_inbox">Home page</string>
     <string name="nav_drafts">Add a patient</string>
-    <string name="nav_sent">Sent mesagez</string>
+    <string name="nav_sent">Transations</string>
     <string name="nav_trash">Contacts</string>
-    <string name="nav_support">Support</string>
-    <string name="nav_help">Halp</string>
-    <string name="nav_feedback">Giv us feedback</string>
+    <string name="nav_support">More</string>
+    <string name="nav_help">Dashboard</string>
+    <string name="nav_feedback">Give us feedback</string>
     <string name="nav_open_drawer">Open navigation drawer</string>
     <string name="nav_close_drawer">Close navigation drawer</string>
 

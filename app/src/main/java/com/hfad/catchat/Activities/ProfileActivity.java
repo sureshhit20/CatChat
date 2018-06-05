@@ -1,5 +1,6 @@
 package com.hfad.catchat.Activities;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -33,16 +34,18 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_profile);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_profile2);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Patient Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Patient Profile");
 
 
         Intent intent = getIntent();
         String intent_id = intent.getStringExtra(EXTRA_ID);
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Obtaining details..");
         progressDialog.show();
 
@@ -68,6 +71,10 @@ public class ProfileActivity extends AppCompatActivity {
                 count_view.setText(userExtra.getCount());
                 disease_view.setText(userExtra.getDisease());
 
+                if (progressDialog.isShowing()) {
+                    progressDialog.dismiss();
+                }
+
             }
 
             @Override
@@ -76,7 +83,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Log.d("TAG31",t.getMessage());
             }
         });
-
 
     }
 
@@ -88,7 +94,20 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(this, EditActivity.class);
-        return true;
+        switch (item.getItemId()) {
+            case R.id.action_edit_profile:
+                Intent intent = new Intent(this, EditActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
     }
 }

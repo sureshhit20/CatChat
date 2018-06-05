@@ -27,16 +27,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.MainActivity" />
         </activity>
-        <activity android:name=".Activities.ContactsList">
+        <activity android:name=".Activities.ContactsList"
+            android:parentActivityName=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".Activities.ProfileActivity"
-            android:parentActivityName=".Activities.MainActivity"/>
+            android:parentActivityName=".Activities.ContactsList"/>
         <activity android:name=".Activities.EditActivity"
-            android:parentActivityName=".Activities.ProfileActivity"
-            >
+            android:parentActivityName=".Activities.ProfileActivity">
         </activity>
     </application>
 

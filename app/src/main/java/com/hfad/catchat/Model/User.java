@@ -2,6 +2,9 @@ package com.hfad.catchat.Model;
 
 public class User {
 
+
+
+    private String uid;
     private String dr;
     private String name;
     private String place;
@@ -22,6 +25,23 @@ public class User {
 
     }
 
+    public User(String uid, String dr, String name, String place, String phone, String disease, int age, String day){
+
+        this.dr = dr;
+        this.name = name;
+        this.place = place;
+        this.phone = phone;
+        this.disease = disease;
+        this.age = age;
+        this.day = day;
+        this.uid = uid;
+
+    }
+
+
+    public String getUid() {
+        return uid;
+    }
     public String getName() {
         return name;
     }
