@@ -1,5 +1,6 @@
 package com.hfad.catchat.Activities;
 
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -57,6 +58,10 @@ public class ContactsList extends AppCompatActivity implements ContactsAdapter.C
         getSupportActionBar().setTitle(R.string.toolbar_title);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white,getTheme()));
 
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Obtaining details..");
+        progressDialog.show();
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -76,6 +81,9 @@ public class ContactsList extends AppCompatActivity implements ContactsAdapter.C
                 contactList.addAll(temp);
                 Log.d("TAG24", "number of original contacts are " + contactList.size());
                 contactsAdapter.notifyDataSetChanged();
+                if (progressDialog.isShowing()) {
+                    progressDialog.dismiss();
+                }
 
             }
 
@@ -146,6 +154,13 @@ public class ContactsList extends AppCompatActivity implements ContactsAdapter.C
         Intent intent = new Intent(this, ProfileActivity.class);
         intent.putExtra(ProfileActivity.EXTRA_ID,contact.getId());
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
     }
 
 }

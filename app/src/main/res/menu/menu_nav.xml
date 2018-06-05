@@ -5,23 +5,23 @@
         >
     <item
         android:id="@+id/nav_inbox"
-        android:icon="@android:drawable/sym_action_email"
+        android:icon="@drawable/ic_home_black_64dp"
         android:title="@string/nav_inbox"
         android:checked="true"
         />
     <item
         android:id="@+id/nav_drafts"
-        android:icon="@android:drawable/ic_menu_edit"
+        android:icon="@drawable/ic_group_add_black_24dp"
         android:title="@string/nav_drafts"
         />
     <item
         android:id="@+id/nav_sent"
-        android:icon="@android:drawable/ic_menu_send"
+        android:icon="@drawable/ic_history_black_24dp"
         android:title="@string/nav_sent"
         />
     <item
         android:id="@+id/nav_trash"
-        android:icon="@android:drawable/ic_menu_delete"
+        android:icon="@drawable/ic_perm_contact_calendar_black_24dp"
         android:title="@string/nav_trash"
         />
     </group>
@@ -32,7 +32,7 @@
         <menu>
             <item
                 android:id="@+id/nav_help"
-                android:icon="@android:drawable/ic_menu_help"
+                android:icon="@drawable/ic_dashboard_black_24dp"
                 android:title="@string/nav_help"
                 />
             <item

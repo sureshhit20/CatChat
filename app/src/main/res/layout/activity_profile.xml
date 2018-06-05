@@ -12,9 +12,10 @@
         android:theme="@style/AppTheme.AppBarOverlay" >
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_profile"
+            android:id="@+id/toolbar_profile2"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/graylight"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
@@ -38,7 +39,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nandamoori Ramarao"
                 android:id="@+id/profile_name"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -49,7 +49,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_phone"
-                android:text="9494254242"
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="15sp"/>
@@ -80,7 +79,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Thyroid"
                         android:textStyle="bold"
                         android:textSize="15sp"
                         android:paddingTop="10dp"
@@ -104,7 +102,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/profile_place"
-                        android:text="Miryalaguda"
                         android:textStyle="bold"
                         android:textSize="15sp"
                         android:paddingTop="10dp"
@@ -126,7 +123,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5"
                         android:textStyle="bold"
                         android:textSize="15sp"
                         android:paddingTop="10dp"
