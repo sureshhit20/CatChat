@@ -23,12 +23,12 @@ public class UserExtra {
     private String disease;
     @SerializedName("age")
     @Expose
-    private int age;
+    private String age;
     @SerializedName("day")
     @Expose
     private String day;
 
-    public UserExtra(String count, String name, String place, String phone, String disease, int age, String day){
+    public UserExtra(String count, String name, String place, String phone, String disease, String age, String day){
 
         this.count = count;
         this.name = name;
@@ -60,7 +60,7 @@ public class UserExtra {
         return disease;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 

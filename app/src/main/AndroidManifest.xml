@@ -22,11 +22,6 @@
         </activity>
         <activity android:name=".Activities.HelpActivity" />
         <activity android:name=".Activities.FeedbackActivity" />
-        <activity android:name=".Activities.AddResponse">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
-        </activity>
         <activity android:name=".Activities.ContactsList"
             android:parentActivityName=".Activities.MainActivity">
             <intent-filter>
@@ -39,7 +34,7 @@
         <activity android:name=".Activities.ProfileActivity"
             android:parentActivityName=".Activities.ContactsList"/>
         <activity android:name=".Activities.EditActivity"
-            android:parentActivityName=".Activities.ProfileActivity">
+            android:parentActivityName=".Activities.ContactsList">
         </activity>
     </application>
 

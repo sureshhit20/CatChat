@@ -184,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#fff"
-                    android:text="Remarks History"
+                    android:text="Earlier Observations"
                     android:textSize="10sp"
                     android:background="@drawable/buttonstylegradient"
                     android:layout_marginTop="25dp"

@@ -2,30 +2,35 @@ package com.hfad.catchat.Model;
 
 public class User {
 
-
+    private String name;
+    private String phone;
+    private String place;
+    private String age;
+    private String disease;
+    private String day;
 
     private String uid;
     private String dr;
-    private String name;
-    private String place;
-    private String phone;
-    private String disease;
-    private int age;
-    private String day;
+    private String count;
+    private String buffer;
 
-    public User(String dr, String name, String place, String phone, String disease, int age, String day){
 
-        this.dr = dr;
+    private String joiningDate;
+
+    public User(String name, String age,String place,String phone, String disease, String day,String dr){
+
         this.name = name;
         this.place = place;
         this.phone = phone;
         this.disease = disease;
         this.age = age;
         this.day = day;
+        this.dr = dr;
+
 
     }
 
-    public User(String uid, String dr, String name, String place, String phone, String disease, int age, String day){
+    public User(String name, String phone, String place, String age, String disease, String day, String dr,String uid){
 
         this.dr = dr;
         this.name = name;
@@ -35,6 +40,20 @@ public class User {
         this.age = age;
         this.day = day;
         this.uid = uid;
+
+    }
+
+    public User(String count, String name, String place, String phone, String disease, String age, String day,String joiningDate, String buffer){
+
+        this.count = count;
+        this.name = name;
+        this.place = place;
+        this.phone = phone;
+        this.disease = disease;
+        this.age = age;
+        this.day = day;
+        this.joiningDate = joiningDate;
+        this.buffer = buffer;
 
     }
 
@@ -62,12 +81,25 @@ public class User {
         return disease;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
     public String getDr() {
         return dr;
     }
+
+    public String getCount() {
+        return count;
+    }
+
+    public String getJoiningDate() {
+        return joiningDate;
+    }
+
+    public String getBuffer() {
+        return buffer;
+    }
+
 
 }
