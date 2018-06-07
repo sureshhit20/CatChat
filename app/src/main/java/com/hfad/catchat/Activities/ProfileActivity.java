@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hfad.catchat.Model.User;
-import com.hfad.catchat.Model.UserExtra;
 import com.hfad.catchat.R;
 import com.hfad.catchat.Retrofit.ApiClient;
 import com.hfad.catchat.Retrofit.ApiInterface;
@@ -28,6 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public static final String EXTRA_ID = "message";
     TextView name_view,phone_view,place_view,disease_view,count_view;
+    private String id, name, phone, place,disease,day, age,joining_date,buffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String intent_id = intent.getStringExtra(EXTRA_ID);
+        id = intent.getStringExtra(EXTRA_ID);
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
@@ -58,18 +58,26 @@ public class ProfileActivity extends AppCompatActivity {
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<UserExtra> call =  apiService.getContactById(intent_id);
+        Call<User> call =  apiService.getContactById(id);
         Log.d("TAG30", String.valueOf(call.request()));
 
-        call.enqueue(new Callback<UserExtra>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<UserExtra> call, Response<UserExtra> response) {
-                UserExtra userExtra = response.body();
-                name_view.setText(userExtra.getName());
-                phone_view.setText(userExtra.getPhone());
-                place_view.setText(userExtra.getPlace());
-                count_view.setText(userExtra.getCount());
-                disease_view.setText(userExtra.getDisease());
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body();
+                name_view.setText(user.getName());
+                phone_view.setText(user.getPhone());
+                place_view.setText(user.getPlace());
+                count_view.setText(user.getCount());
+                disease_view.setText(user.getDisease());
+
+                name = user.getName();
+                phone = user.getPhone();
+                place = user.getPlace();
+                age = user.getAge();
+                disease = user.getDisease();
+                day = user.getDay();
+
 
                 if (progressDialog.isShowing()) {
                     progressDialog.dismiss();
@@ -78,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<UserExtra> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
                 Log.d("TAG31",t.getMessage());
             }
@@ -97,6 +105,13 @@ public class ProfileActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_edit_profile:
                 Intent intent = new Intent(this, EditActivity.class);
+                intent.putExtra(EditActivity.EXTRA_ID1,id);
+                intent.putExtra(EditActivity.EXTRA_NAME,name);
+                intent.putExtra(EditActivity.EXTRA_PHONE,phone);
+                intent.putExtra(EditActivity.EXTRA_PLACE,place);
+                intent.putExtra(EditActivity.EXTRA_AGE,age);
+                intent.putExtra(EditActivity.EXTRA_DISEASE,disease);
+                intent.putExtra(EditActivity.EXTRA_DAY,day);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 return true;
@@ -109,5 +124,15 @@ public class ProfileActivity extends AppCompatActivity {
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //moveTaskToBack(true);
+        Intent setIntent = new Intent(this,ContactsList.class);
+        startActivity(setIntent);
+        overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right);
+
+
     }
 }

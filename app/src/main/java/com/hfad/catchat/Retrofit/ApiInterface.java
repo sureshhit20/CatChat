@@ -19,10 +19,10 @@ public interface ApiInterface {
     @POST("adduser.php")
     Call<Result> createUser(
             @Field("name") String name,
+            @Field("age") String age,
             @Field("place") String place,
             @Field("phone") String phone,
             @Field("disease") String disease,
-            @Field("age") int age,
             @Field("day") String day,
             @Field("dr") String dr);
 
@@ -31,19 +31,19 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("getcontactbyid.php")
-    Call<UserExtra> getContactById(
+    Call<User> getContactById(
             @Field("id") String id);
 
     @FormUrlEncoded
-    @POST("editcontact.php")
-    Call<User> editContact(
-            @Field("id") String id,
+    @POST("updateuser.php")
+    Call<Result> editContact(
             @Field("name") String name,
-            @Field("place") String place,
             @Field("phone") String phone,
+            @Field("place") String place,
+            @Field("age") String age,
             @Field("disease") String disease,
-            @Field("age") int age,
             @Field("day") String day,
-            @Field("dr") String dr);;
+            @Field("dr") String dr,
+            @Field("id") String id);
 
 }

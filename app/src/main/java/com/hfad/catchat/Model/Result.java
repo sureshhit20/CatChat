@@ -4,23 +4,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class Result {
 
-    @SerializedName("error")
-    private Boolean error;
+    @SerializedName("success")
+    private Boolean success;
     @SerializedName("message")
     private String message;
-    @SerializedName("user")
-    private User user;
+    //@SerializedName("user")
+    //private User user;
 
 
-    public Result(Boolean error, String message, User user) {
-        this.error = error;
+    public Result(Boolean error, String message) {
+        this.success = error;
         this.message = message;
-        this.user = user;
+        //this.user = user;
     }
 
 
     public Boolean getError() {
-        return error;
+        return success;
     }
 
     public String getMessage() {

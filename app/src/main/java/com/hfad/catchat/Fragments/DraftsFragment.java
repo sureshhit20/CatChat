@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.hfad.catchat.Activities.AddResponse;
+import com.hfad.catchat.Activities.MainActivity;
 import com.hfad.catchat.Model.Result;
 import com.hfad.catchat.Model.User;
 import com.hfad.catchat.R;
@@ -31,7 +31,7 @@ public class DraftsFragment extends Fragment implements View.OnClickListener{
     private Button signupBtn1;
     View layout;
     String day;boolean checked = false;
-    private String name,place,disease,dr,phone; private int age;
+    private String name,place,disease,dr,phone,age;
 
 
 
@@ -188,13 +188,13 @@ public class DraftsFragment extends Fragment implements View.OnClickListener{
         place = pat1_place.getText().toString().trim();
         phone = pat1_phone.getText().toString().trim();
         disease = pat1_disease.getText().toString().trim();
-        age = Integer.parseInt(pat1_age.getText().toString().trim());
+        age = pat1_age.getText().toString().trim();
         dr = "chari";
 
-        User user = new User(dr, name, place, phone, disease, age, day);
+        User user = new User(name, age, place,phone, disease, day,dr);
 
         Call<Result> call = apiService.createUser(user.getName(),
-                user.getPlace(),user.getPhone(),user.getDisease(),user.getAge(),user.getDay(),user.getDr());
+                user.getAge(),user.getPlace(),user.getPhone(),user.getDisease(),user.getDay(),user.getDr());
         Log.d("TAG28", String.valueOf(call.request()));
 
         call.enqueue(new Callback<Result>() {
@@ -207,8 +207,9 @@ public class DraftsFragment extends Fragment implements View.OnClickListener{
 //                    ft.addToBackStack(null);
 //                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 //                    ft.commit();
-
-                    Intent intent = new Intent(getActivity().getApplication(), AddResponse.class);
+                Log.d("TAG45", String.valueOf(response.message()));
+                Toast.makeText(getContext(), "Add Successful", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity().getApplication(), MainActivity.class);
                     startActivity(intent);
              //   }
                 

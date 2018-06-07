@@ -4,7 +4,8 @@
         android:fromXDelta="100%p"
         android:toXDelta="0"
 
-        android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
-    <!--android:duration="@integer/slide_animation_duration" -->
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:duration="300"
+        />
 
 </set>
